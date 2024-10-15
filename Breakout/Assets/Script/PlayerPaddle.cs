@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Paddle : MonoBehaviour
+public class PlayerPaddle : MonoBehaviour
 {
-    public float boundry = 7.5f;
+    [Header("Inscribed")]
+    public float boundry = 10f;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +25,13 @@ public class Paddle : MonoBehaviour
         Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
         
         Debug.Log(mousePos3D.x);
+        
+        //if within the boundry (left and right walls)
         if (mousePos3D.x < boundry && mousePos3D.x > -boundry)
         {
             Vector3 pos = this.transform.position;
             pos.x = mousePos3D.x;
             this.transform.position = pos;
         }
-        
     }
 }

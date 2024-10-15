@@ -554,7 +554,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 119, y: 431}
-  m_SizeDelta: {x: 317.2919, y: 318.2941}
+  m_SizeDelta: {x: 240, y: 318.2941}
   m_Pivot: {x: 1.0000001, y: 1.5114268}
 --- !u!114 &937907314
 MonoBehaviour:
@@ -576,7 +576,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BREAKEN
+  m_text: BREAKOUT EXTREAM
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bdd1b4a06cdb34129844f1830eed65da, type: 2}
   m_sharedMaterial: {fileID: 8435983640810004101, guid: bdd1b4a06cdb34129844f1830eed65da, type: 2}
@@ -691,7 +691,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -12.4274, y: -149.065}
-  m_SizeDelta: {x: 224.9284, y: 68.13}
+  m_SizeDelta: {x: 240, y: 68.13}
   m_Pivot: {x: 0.4156924, y: 0.5}
 --- !u!114 &1139772270
 MonoBehaviour:
