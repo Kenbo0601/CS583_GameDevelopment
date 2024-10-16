@@ -24,7 +24,6 @@ public class PlayerPaddle : MonoBehaviour
         // Convert the point from 2D screen space into 3D game world space
         Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
         
-        Debug.Log(mousePos3D.x);
         
         //if within the boundry (left and right walls)
         if (mousePos3D.x < boundry && mousePos3D.x > -boundry)

@@ -6,13 +6,23 @@ using UnityEngine;
 /* This class controlls the ball behavior */
 public class Ball : MonoBehaviour
 {
-    public float maxVelocity = 10f;
+    public float maxVelocity = 10f; // max speed of the ball 
     private bool trigger  = false; // when ball hits a special object, turn this to true
-    private Rigidbody2D rb;
+    private Rigidbody2D rb; 
+    
+    /* Audio */
+    public AudioSource audioSource; 
+   
   
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
+        // check if AudioSource is assigned in the Ispector
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
 
     // Update is called once per frame
@@ -37,6 +47,8 @@ public class Ball : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D coll)
     {
+        BallBounceSound(); // play ball bounce sound when collision occurs
+        
         // Find out what hit this basket
         GameObject collidedWith = coll.gameObject;
     
@@ -44,15 +56,22 @@ public class Ball : MonoBehaviour
         // Destroy bricks when the balls hits them 
         if (collidedWith.CompareTag("Brick"))
         {
-            Debug.Log(collidedWith.name);
-            // turn on trigger feature when adding items 
-            Destroy(collidedWith);
+            Destroy(collidedWith); // destroy brick
         }
 
         if (collidedWith.CompareTag("Star"))
         {
-            trigger = true;
+            Destroy(collidedWith); // destroy star
+            trigger = true; // turn on flag to make the ball bigger
         }
-       
+    }
+    
+    // this function gets called everytime the ball hits an object
+    public void BallBounceSound()
+    {
+        if (audioSource != null && audioSource.clip != null)
+        {
+            audioSource.Play();
+        }
     }
 }
