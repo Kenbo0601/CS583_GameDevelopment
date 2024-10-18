@@ -46,12 +46,11 @@ public class BestTime : MonoBehaviour
 
     static public void TRY_SET_BEST_TIME(float timeToTry)
     {
-        Debug.Log(timeToTry + " : " + _TIME); //TODO: bestTime says 80, so its not 8 seconds 
         if(timeToTry <= TIME) return;
         TIME = timeToTry;
     }
 
-    [Tooltip("Check this box to reset the HighScore in PlayerPrefs")]
+    [Tooltip("Check this box to reset the BestTime in PlayerPrefs")]
     public bool resetBestTimeNow = false;
 
     private void OnDrawGizmos()

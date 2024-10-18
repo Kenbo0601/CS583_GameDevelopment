@@ -1892,7 +1892,8 @@ MonoBehaviour:
   yellowBrickPrefab: {fileID: 8389634698579271050, guid: 509ab7791d93c4023ac395ec00df588c, type: 3}
   starPrefab: {fileID: 7132909285941170856, guid: 884a2c8c45c8f4edf9643d44ea77feb2, type: 3}
   audioSource: {fileID: 341828661}
-  timeCounter: {fileID: 0}
+  scoreCounter: {fileID: 2058075963}
+  timeCounter: {fileID: 805195441}
 --- !u!1 &1670649088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,8 +1929,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -760, y: 420}
-  m_SizeDelta: {x: 300, y: 50}
+  m_AnchoredPosition: {x: -740, y: 420}
+  m_SizeDelta: {x: 350, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1670649090
 MonoBehaviour:
@@ -2210,7 +2211,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxVelocity: 40
   audioSource: {fileID: 0}
-  scoreCounter: {fileID: 0}
 --- !u!82 &1943751563
 AudioSource:
   m_ObjectHideFlags: 0

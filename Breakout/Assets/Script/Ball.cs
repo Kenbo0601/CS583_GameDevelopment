@@ -8,14 +8,12 @@ public class Ball : MonoBehaviour
 {
     public float maxVelocity = 10f; // max speed of the ball 
     private bool trigger; // when ball hits a special object, turn this to true
-    private Rigidbody2D rb; 
+    private Rigidbody2D rb;
+    public static bool hitFlag;
     
     /* Audio */
     public AudioSource audioSource; 
     
-    /* ScoreCounter Object */
-    public ScoreCounter scoreCounter;
-  
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -27,8 +25,7 @@ public class Ball : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
         }
         
-        GameObject scoreGO = GameObject.Find("ScoreCounter"); // Find scoreCounter obj in the Hierarchy
-        scoreCounter = scoreGO.GetComponent<ScoreCounter>(); // get the scoreCounter script component of scoreGO
+        hitFlag = false; 
     }
 
     // Update is called once per frame
@@ -63,8 +60,7 @@ public class Ball : MonoBehaviour
         if (collidedWith.CompareTag("Brick"))
         {
             Destroy(collidedWith); // destroy brick
-            scoreCounter.score += 100; // increment the score 
-            HighScore.TRY_SET_HIGH_SCORE(scoreCounter.score); // invoke HighScore.cs for updating high score 
+            hitFlag = true;
         }
 
         if (collidedWith.CompareTag("Star"))
