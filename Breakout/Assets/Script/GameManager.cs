@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     /* Audio */
     public AudioSource audioSource; // background music
     
+    public TimeCounter timeCounter; 
     
     private void Awake()
     {
@@ -63,6 +65,9 @@ public class GameManager : MonoBehaviour
             audioSource.loop = true; // set loop to true so it plays forever 
             audioSource.Play();
         }
+        
+        GameObject timeGO = GameObject.Find("TimeCounter"); // Find scoreCounter obj in the Hierarchy
+        timeCounter = timeGO.GetComponent<TimeCounter>(); // get the scoreCounter script component of scoreGO
     }
 
     // Update is called once per frame
@@ -72,5 +77,11 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver"); // If ball falls out, move to gameover screen 
         }
+    }
+
+    private void FixedUpdate()
+    { 
+        BestTime.TRY_SET_BEST_TIME(timeCounter.eplapsedTime); 
+        //Debug.Log(timeCounter.eplapsedTime);
     }
 }
