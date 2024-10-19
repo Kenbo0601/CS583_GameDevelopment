@@ -58,7 +58,9 @@ public class GameManager : MonoBehaviour
             // handles score  
             scoreCounter.score += 100; // increment the score 
             HighScore.TRY_SET_HIGH_SCORE(scoreCounter.score); // invoke HighScore.cs for updating high score 
-            
+
+            GameClear.score = timeCounter.elapsedTime;
+            SceneManager.LoadScene("GameClear");
             // handles bricks counter
             numOfBricks--; 
             Debug.Log(numOfBricks);
@@ -67,7 +69,7 @@ public class GameManager : MonoBehaviour
             if (numOfBricks <= 0)
             {
                 Debug.Log("Game Clear!");
-                // call game clear scene here 
+                SceneManager.LoadScene("GameClear");
             }
         }
     }
@@ -76,7 +78,7 @@ public class GameManager : MonoBehaviour
     // Update the best time 
     private void FixedUpdate()
     { 
-        BestTime.TRY_SET_BEST_TIME(timeCounter.eplapsedTime); 
+        BestTime.TRY_SET_BEST_TIME(timeCounter.elapsedTime); 
     }
    
     
