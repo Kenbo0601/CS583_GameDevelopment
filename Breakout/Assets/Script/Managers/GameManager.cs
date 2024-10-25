@@ -59,8 +59,6 @@ public class GameManager : MonoBehaviour
             scoreCounter.score += 100; // increment the score 
             HighScore.TRY_SET_HIGH_SCORE(scoreCounter.score); // invoke HighScore.cs for updating high score 
 
-            GameClear.score = timeCounter.elapsedTime;
-            SceneManager.LoadScene("GameClear");
             // handles bricks counter
             numOfBricks--; 
             Debug.Log(numOfBricks);
@@ -68,6 +66,7 @@ public class GameManager : MonoBehaviour
 
             if (numOfBricks <= 0)
             {
+                GameClear.score = timeCounter.elapsedTime;
                 Debug.Log("Game Clear!");
                 SceneManager.LoadScene("GameClear");
             }
@@ -110,6 +109,7 @@ public class GameManager : MonoBehaviour
         } 
         
         numOfBricks = brickList.Count; // assign the total number of bricks to this variable 
+        Debug.Log("num of bricks at the beginning of the game: " + numOfBricks);
     }
 
     private void GenerateStar()
