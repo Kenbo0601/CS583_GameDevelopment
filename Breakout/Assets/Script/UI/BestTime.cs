@@ -46,7 +46,7 @@ public class BestTime : MonoBehaviour
 
     static public void TRY_SET_BEST_TIME(float timeToTry)
     {
-        if(timeToTry <= TIME) return;
+        if(timeToTry >= TIME) return;
         TIME = timeToTry;
     }
 

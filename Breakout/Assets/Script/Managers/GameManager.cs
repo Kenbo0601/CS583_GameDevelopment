@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public GameObject redBrickPrefab;
     public GameObject greenBrickPrefab;
     public GameObject yellowBrickPrefab;
+    public GameObject purpleBrickPrefab;
     public GameObject starPrefab;
     
     /* Audio */
@@ -94,18 +95,41 @@ public class GameManager : MonoBehaviour
             GameObject redBrick = Instantiate(redBrickPrefab, transform);
             GameObject greenBrick = Instantiate(greenBrickPrefab, transform);
             GameObject yellowBrick = Instantiate(yellowBrickPrefab, transform);
+            GameObject purpleBrick = Instantiate(purpleBrickPrefab, transform);
             
-            // set position for each brick
+            GameObject blueBrickTwo = Instantiate(blueBrickPrefab, transform);
+            GameObject redBrickTwo = Instantiate(redBrickPrefab, transform);
+            GameObject greenBrickTwo = Instantiate(greenBrickPrefab, transform);
+            GameObject yellowBrickTwo = Instantiate(yellowBrickPrefab, transform);
+            GameObject purpleBrickTwo = Instantiate(purpleBrickPrefab, transform);
+                        
+            
+            // set position for each brick - under the Hitter
             blueBrick.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos, 0);
             redBrick.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+2, 0);
             greenBrick.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+4, 0);
             yellowBrick.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+6, 0);
+            purpleBrick.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+8, 0);
+            
+            // set position for each brick - above the Hitter
+            blueBrickTwo.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+24, 0);
+            redBrickTwo.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+22, 0);
+            greenBrickTwo.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+20, 0);
+            yellowBrickTwo.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+18, 0);
+            purpleBrickTwo.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+16, 0);
+                                                                         
             
             // add bricks into a list
             brickList.Add(blueBrick);
             brickList.Add(redBrick);
             brickList.Add(greenBrick);
             brickList.Add(yellowBrick);
+            brickList.Add(purpleBrick);
+            brickList.Add(blueBrickTwo);
+            brickList.Add(redBrickTwo);
+            brickList.Add(greenBrickTwo);
+            brickList.Add(yellowBrickTwo);
+            brickList.Add(purpleBrickTwo);
         } 
         
         numOfBricks = brickList.Count; // assign the total number of bricks to this variable 

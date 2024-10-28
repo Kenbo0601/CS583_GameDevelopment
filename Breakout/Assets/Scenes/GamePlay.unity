@@ -810,7 +810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09799dd3aaad2433b99d61e0e32bc55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eplapsedTime: 0
+  elapsedTime: 0
 --- !u!1 &1023610100
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,6 +1890,7 @@ MonoBehaviour:
   redBrickPrefab: {fileID: 1667571765313407028, guid: 0c0854e0baa6b42cd8d563353a81ea46, type: 3}
   greenBrickPrefab: {fileID: 3361149752708779498, guid: 97a183539b0be4941a75d5a9d59776e7, type: 3}
   yellowBrickPrefab: {fileID: 8389634698579271050, guid: 509ab7791d93c4023ac395ec00df588c, type: 3}
+  purpleBrickPrefab: {fileID: 6439235566799549162, guid: 0b70b25a8bed841b99ca7bc56c717950, type: 3}
   starPrefab: {fileID: 7132909285941170856, guid: 884a2c8c45c8f4edf9643d44ea77feb2, type: 3}
   audioSource: {fileID: 341828661}
   scoreCounter: {fileID: 2058075963}
