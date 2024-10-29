@@ -8,6 +8,7 @@ TagManager:
   - Brick
   - Star
   - checkbox
+  - Enemy
   layers:
   - Default
   - TransparentFX

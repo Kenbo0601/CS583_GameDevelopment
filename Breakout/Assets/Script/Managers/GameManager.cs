@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public int bottomPos = -2; // the bottom most bricks positions for Y
     public int bottomScreenPos = -33; // bottom screen position
     private List<GameObject> brickList; // store bricks 
-    private int numOfBricks;
+    private int numOfBricks; // integer variable for keeping track of the number of bricks
     
     
     /* game objects */
@@ -59,7 +59,6 @@ public class GameManager : MonoBehaviour
         {
             // handles score  
             scoreCounter.score += 100; // increment the score 
-            HighScore.TRY_SET_HIGH_SCORE(scoreCounter.score); // invoke HighScore.cs for updating high score 
            
             // handles bricks counter
             numOfBricks--; 
@@ -69,7 +68,8 @@ public class GameManager : MonoBehaviour
             if (numOfBricks <= 0)
             {
                 GameClear.score = timeCounter.elapsedTime;
-                BestTime.TRY_SET_BEST_TIME(GameClear.score); 
+                BestTime.TRY_SET_BEST_TIME(GameClear.score); // invoke BestTime.cs for updating best time 
+                HighScore.TRY_SET_HIGH_SCORE(scoreCounter.score); // invoke HighScore.cs for updating high score
                 SceneManager.LoadScene("GameClear");
             }
         }
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         // if ball hits enemy, decrese score by 800
         if (Ball.enemyFlag)
         {
-            scoreCounter.score -= 800;
+            scoreCounter.score -= 500;
             Ball.enemyFlag = false;
         }
     }
