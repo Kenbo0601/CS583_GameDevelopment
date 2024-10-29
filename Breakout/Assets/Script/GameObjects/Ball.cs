@@ -10,6 +10,7 @@ public class Ball : MonoBehaviour
     private bool trigger; // when ball hits a special object, turn this to true
     private Rigidbody2D rb;
     public static bool hitFlag;
+    public static bool enemyFlag;
     
     /* Audio */
     public AudioSource audioSource; 
@@ -26,6 +27,7 @@ public class Ball : MonoBehaviour
         }
         
         hitFlag = false; 
+        enemyFlag = false;
     }
 
     // Update is called once per frame
@@ -67,6 +69,13 @@ public class Ball : MonoBehaviour
         {
             Destroy(collidedWith); // destroy star
             trigger = true; // turn on flag to make the ball bigger
+        }
+
+        if (collidedWith.CompareTag("Enemy"))
+        {
+            // pass flag to game manager and make it true 
+            // handle score in game manager 
+            enemyFlag = true;
         }
     }
     

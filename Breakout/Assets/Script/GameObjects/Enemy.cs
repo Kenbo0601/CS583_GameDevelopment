@@ -1,10 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Hitter : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public float speed = 1f;
     //Distance where Hitter turns around 
@@ -42,5 +41,5 @@ public class Hitter : MonoBehaviour
         {
             speed *= -1; // change direction
         }
-    }
+    } 
 }

@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject greenBrickPrefab;
     public GameObject yellowBrickPrefab;
     public GameObject purpleBrickPrefab;
+    public GameObject blueSquareBrickPrefab;
     public GameObject starPrefab;
     
     /* Audio */
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour
             // handles score  
             scoreCounter.score += 100; // increment the score 
             HighScore.TRY_SET_HIGH_SCORE(scoreCounter.score); // invoke HighScore.cs for updating high score 
-
+           
             // handles bricks counter
             numOfBricks--; 
             Debug.Log(numOfBricks);
@@ -68,18 +69,24 @@ public class GameManager : MonoBehaviour
             if (numOfBricks <= 0)
             {
                 GameClear.score = timeCounter.elapsedTime;
-                Debug.Log("Game Clear!");
+                BestTime.TRY_SET_BEST_TIME(GameClear.score); 
                 SceneManager.LoadScene("GameClear");
             }
         }
+        
+        // if ball hits enemy, decrese score by 800
+        if (Ball.enemyFlag)
+        {
+            scoreCounter.score -= 800;
+            Ball.enemyFlag = false;
+        }
     }
-    
     
     // Update the best time 
-    private void FixedUpdate()
+    /*private void FixedUpdate()
     { 
         BestTime.TRY_SET_BEST_TIME(timeCounter.elapsedTime); 
-    }
+    }*/
    
     
     // generate bricks in the game, and store them into a list
@@ -96,13 +103,7 @@ public class GameManager : MonoBehaviour
             GameObject greenBrick = Instantiate(greenBrickPrefab, transform);
             GameObject yellowBrick = Instantiate(yellowBrickPrefab, transform);
             GameObject purpleBrick = Instantiate(purpleBrickPrefab, transform);
-            
-            GameObject blueBrickTwo = Instantiate(blueBrickPrefab, transform);
-            GameObject redBrickTwo = Instantiate(redBrickPrefab, transform);
-            GameObject greenBrickTwo = Instantiate(greenBrickPrefab, transform);
-            GameObject yellowBrickTwo = Instantiate(yellowBrickPrefab, transform);
-            GameObject purpleBrickTwo = Instantiate(purpleBrickPrefab, transform);
-                        
+            GameObject blueSquareBrick = Instantiate(blueSquareBrickPrefab, transform);
             
             // set position for each brick - under the Hitter
             blueBrick.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos, 0);
@@ -110,14 +111,7 @@ public class GameManager : MonoBehaviour
             greenBrick.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+4, 0);
             yellowBrick.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+6, 0);
             purpleBrick.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+8, 0);
-            
-            // set position for each brick - above the Hitter
-            blueBrickTwo.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+24, 0);
-            redBrickTwo.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+22, 0);
-            greenBrickTwo.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+20, 0);
-            yellowBrickTwo.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+18, 0);
-            purpleBrickTwo.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+16, 0);
-                                                                         
+            blueSquareBrick.transform.position = transform.position + new Vector3((i-startPos) * offset.x, bottomPos+20, 0);
             
             // add bricks into a list
             brickList.Add(blueBrick);
@@ -125,11 +119,7 @@ public class GameManager : MonoBehaviour
             brickList.Add(greenBrick);
             brickList.Add(yellowBrick);
             brickList.Add(purpleBrick);
-            brickList.Add(blueBrickTwo);
-            brickList.Add(redBrickTwo);
-            brickList.Add(greenBrickTwo);
-            brickList.Add(yellowBrickTwo);
-            brickList.Add(purpleBrickTwo);
+            brickList.Add(blueSquareBrick);
         } 
         
         numOfBricks = brickList.Count; // assign the total number of bricks to this variable 
@@ -138,9 +128,12 @@ public class GameManager : MonoBehaviour
 
     private void GenerateStar()
     {
-        // create a star object in the game
-        GameObject star = Instantiate(starPrefab);
-        star.transform.position = new Vector3(58, 31, 0); // place the star on the right top corner 
+        // create star objects in the game
+        GameObject starRight = Instantiate(starPrefab);
+        GameObject starLeft = Instantiate(starPrefab);
+         
+        starRight.transform.position = new Vector3(58, 31, 0); // place the star on the right top corner 
+        starLeft.transform.position = new Vector3(-58, 20, 0); // place the star on the left, above the leftPaddle
     }
 
     private void AudioController()

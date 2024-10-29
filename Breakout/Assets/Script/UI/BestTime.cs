@@ -7,7 +7,7 @@ public class BestTime : MonoBehaviour
 {
     // Start is called before the first frame update
     static private TextMeshProUGUI gt;
-    static private float _TIME = 10f;
+    static private float _TIME = 90f;
     
     
     // Awake is a built-in function, gets called before Start()
@@ -58,7 +58,7 @@ public class BestTime : MonoBehaviour
         if (resetBestTimeNow)
         {
             resetBestTimeNow = false;
-            PlayerPrefs.SetFloat("BestTime", 10f);
+            PlayerPrefs.SetFloat("BestTime", 360f);
         }
     }
 }

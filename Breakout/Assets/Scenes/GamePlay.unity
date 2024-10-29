@@ -2210,7 +2210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d8e19abc404410294a041bf2976ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVelocity: 40
+  maxVelocity: 45
   audioSource: {fileID: 0}
 --- !u!82 &1943751563
 AudioSource:
