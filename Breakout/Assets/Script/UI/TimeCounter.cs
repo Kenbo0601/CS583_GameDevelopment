@@ -21,13 +21,7 @@ public class TimeCounter : MonoBehaviour
         if (isCounting)
         {
             elapsedTime += Time.deltaTime; // add the time since the last frame to the elapsed time 
-        
-            // convert the elapsed time to minutes and seconds
-            int min = Mathf.FloorToInt(elapsedTime / 60F);
-            int sec = Mathf.FloorToInt(elapsedTime % 60F);
-            int milliSec = Mathf.FloorToInt((elapsedTime * 100F) % 100F);
-        
-            gt.text = "TIME: " + $"{min:D2}:{sec:D2}:{milliSec:D2}"; // display the current elapsed time
+            gt.text = "TIME: " + TimeConversionUtils.ConvertTime(elapsedTime); // invoke utility function for time conversion 
         }
     } 
 }

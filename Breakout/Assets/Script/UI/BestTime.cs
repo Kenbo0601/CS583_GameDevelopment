@@ -33,13 +33,10 @@ public class BestTime : MonoBehaviour
         {
             _TIME = value;
             PlayerPrefs.SetFloat("BestTime",value);
-            int min = Mathf.FloorToInt(value / 60F);
-            int sec = Mathf.FloorToInt(value % 60F);
-            int milliSec = Mathf.FloorToInt((value * 100F) % 100F);
             
             if (gt != null)
             {
-                gt.text = "Best Time: " +  $"{min:D2}:{sec:D2}:{milliSec:D2}";
+                gt.text = "Best Time: " + TimeConversionUtils.ConvertTime(value);
             }
         }
     }

@@ -21,22 +21,27 @@ public class StartScreen : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
         }
         
+        // Play Audio by default 
+        AudioMuted = false; 
         AudioUtils.PlaySound(audioSource); 
     }
+
 
     // Handles audio check button 
     public void audioControl(bool isOn)
     {
         if (isOn)
         {
-            audioSource.Play();
+            //audioSource.Play();
             AudioMuted = false;
         }
         else
         {
-            audioSource.Stop();
+            //audioSource.Stop();
             AudioMuted = true;
         }
+        
+        AudioUtils.PlaySound(audioSource);
     }
 
 }
