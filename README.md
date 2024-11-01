@@ -1,36 +1,32 @@
-# Project Name
+# 3D Game Programming Project
+**San Diego State University - CS583**
+*Fall 2024*
 
-A brief description of the project, its purpose, and what it accomplishes.
-
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Version](https://img.shields.io/badge/version-1.0.0-green)
+Welcome to my GitHub portfolio! Here you'll find two of my main projects with detailed descriptions, installation steps, and usage instructions.
 
 ---
 
 ## Table of Contents
-- [About](#about)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
+- [Project 1: Project Alpha](#project-1-project-alpha)
+- [Project 2: Project Beta](#project-2-project-beta)
 - [License](#license)
 - [Contact](#contact)
 
 ---
 
-## About
-Describe the project’s goals, the problem it solves, and any relevant context. A few sentences should suffice, followed by any background information as needed.
+## Project 1: Project Alpha
 
-## Features
-- **Feature 1**: Short description of what it does.
-- **Feature 2**: Short description of what it does.
-- **Feature 3**: Short description of what it does.
+### Description
+Project Alpha is a web-based application designed to help users organize their tasks efficiently. It features task categorization, deadline tracking, and collaborative features.
 
-## Installation
+### Features
+- Task categorization and prioritization
+- Deadline tracking and reminders
+- Real-time collaboration with multiple users
 
-### Prerequisites
-List any dependencies or software versions required.
-```bash
-# Example: Node.js
-Node >= 14.x
+### Installation
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/username/project-alpha.git
+   cd project-alpha
+
