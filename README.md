@@ -1,20 +1,19 @@
-# 3D Game Programming Project
-**San Diego State University - CS583**
-*Fall 2024*
+# CS583 - 3D Game Programming 
+**San Diego State University - Fall 2024**
 
-Welcome to my GitHub portfolio! Here you'll find two of my main projects with detailed descriptions, installation steps, and usage instructions.
+Welcome to my GitHub for my Game Programming Class Projects! 
 
 ---
 
 ## Table of Contents
-- [Project 1: Project Alpha](#project-1-project-alpha)
+- [Project 1: Apple Picker](#project-1-apple-picker)
 - [Project 2: Project Beta](#project-2-project-beta)
 - [License](#license)
 - [Contact](#contact)
 
 ---
 
-## Project 1: Project Alpha
+## Project 1: Apple Picker
 
 ### Description
 Project Alpha is a web-based application designed to help users organize their tasks efficiently. It features task categorization, deadline tracking, and collaborative features.
