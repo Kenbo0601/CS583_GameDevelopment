@@ -15,17 +15,6 @@ public class GameOver : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
         }
         
-        // Play background music 
-        if (audioSource != null && audioSource.clip != null)
-        {
-            // static variable "AudioMuted" in StartEnd.cs is being passed here for mute control
-            audioSource.mute = StartScreen.AudioMuted; 
-            audioSource.Play();
-        } 
-    }
-
-    void Update()
-    {
-        
+        AudioUtils.PlaySound(audioSource); // call Audio Utility class function 
     }
 }

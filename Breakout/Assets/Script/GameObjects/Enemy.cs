@@ -12,15 +12,10 @@ public class Enemy : MonoBehaviour
     // chance that the Hitter will change directions
     public float changeDirChance = 10f;
     
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
-        // Basic movement
+        // Basic movement of an enemy
         Vector3 pos = transform.position;
         pos.x += speed * Time.deltaTime;
         transform.position = pos; 
@@ -34,7 +29,8 @@ public class Enemy : MonoBehaviour
             speed = -Mathf.Abs(speed); // Move left
         }
     }
-
+    
+    
     private void FixedUpdate()
     {
         if (Random.value < changeDirChance)

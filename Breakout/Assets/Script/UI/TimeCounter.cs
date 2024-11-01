@@ -8,7 +8,6 @@ public class TimeCounter : MonoBehaviour
     [Header("Dynamic")] 
     public float elapsedTime = 0f;
     private bool isCounting = false;
-    //private Text uiText;
     private TextMeshProUGUI gt;
     
     void Start()

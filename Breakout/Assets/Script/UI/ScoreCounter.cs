@@ -7,14 +7,14 @@ public class ScoreCounter : MonoBehaviour
 {
     [Header("Dynamic")] 
     public int score = 0; 
-    //private Text uiText;
     private TextMeshProUGUI gt;
     
     void Start()
     {
         gt = GetComponent<TextMeshProUGUI>();
     }
-
+    
+    // Display the score on the game play screen 
     void Update()
     {
         if (score < 0)

@@ -26,7 +26,7 @@ public class HighScore : MonoBehaviour
     }
 
     // property field
-    static public int SCORE
+    public static int SCORE
     {
         get { return _SCORE; }
         private set
@@ -40,7 +40,7 @@ public class HighScore : MonoBehaviour
         }
     }
 
-    static public void TRY_SET_HIGH_SCORE(int scoreToTry)
+    public static void TRY_SET_HIGH_SCORE(int scoreToTry)
     {
         if(scoreToTry <= SCORE) return;
         SCORE = scoreToTry;

@@ -21,18 +21,10 @@ public class StartScreen : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
         }
         
-        // Play background music 
-        if (audioSource != null && audioSource.clip != null)
-        {
-            //audioSource.loop = true; // set loop to true so it plays forever 
-            audioSource.Play();
-        } 
+        AudioUtils.PlaySound(audioSource); 
     }
 
-    void Update()
-    {
-    }
-
+    // Handles audio check button 
     public void audioControl(bool isOn)
     {
         if (isOn)

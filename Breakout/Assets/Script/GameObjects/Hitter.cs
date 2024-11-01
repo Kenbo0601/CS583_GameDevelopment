@@ -13,15 +13,10 @@ public class Hitter : MonoBehaviour
     // chance that the Hitter will change directions
     public float changeDirChance = 10f;
     
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
-        // Basic movement
+        // Basic movement of the Hitter (bar)
         Vector3 pos = transform.position;
         pos.x += speed * Time.deltaTime;
         transform.position = pos; 

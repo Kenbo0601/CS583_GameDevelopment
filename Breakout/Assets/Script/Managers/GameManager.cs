@@ -4,6 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+/*
+    *** Game Manager Class *** 
+    This class manages the game play scene. 
+    When the game starts, it finds the ball object to keep track of how many bricks it hit.
+    Creates the star objects, bricks, controls audio, and updates score and time. 
+*/
+
 public class GameManager : MonoBehaviour
 {
     [Header("Inscribed")] 
@@ -38,17 +46,18 @@ public class GameManager : MonoBehaviour
     {
         ball = GameObject.Find("Ball"); // find ball object for keeping track of the ball location 
         
-        GenerateStar(); 
-        GenerateBricks(); // function call for generating bricks at the beginning of the game
-        AudioController(); 
-        GenerateTime();
-        GenerateScore();
+        // Helper function calls
+        GenerateStar(); // create star objects
+        GenerateBricks(); // create bricks in the game
+        AudioController(); // control audio 
+        GenerateTime(); // keeps track of the time 
+        GenerateScore(); // keeps track of the score 
     }
 
     
-    // Update is called once per frame
     void Update()
     {
+        // If the ball goes out of the screen, load the gameover scene 
         if (ball.transform.position.y < bottomScreenPos)
         {
             SceneManager.LoadScene("GameOver"); // If ball falls out, move to gameover screen 
@@ -59,12 +68,13 @@ public class GameManager : MonoBehaviour
         {
             // handles score  
             scoreCounter.score += 100; // increment the score 
-           
+            
             // handles bricks counter
             numOfBricks--; 
             Debug.Log(numOfBricks);
             Ball.hitFlag = false;
-
+            
+            // Player hit all the bricks, so record the time and score and move to gameclear scene
             if (numOfBricks <= 0)
             {
                 GameClear.score = timeCounter.elapsedTime;
@@ -74,7 +84,7 @@ public class GameManager : MonoBehaviour
             }
         }
         
-        // if ball hits enemy, decrese score by 800
+        // if ball hits enemy, decrese score by 500
         if (Ball.enemyFlag)
         {
             scoreCounter.score -= 500;
@@ -82,14 +92,8 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    // Update the best time 
-    /*private void FixedUpdate()
-    { 
-        BestTime.TRY_SET_BEST_TIME(timeCounter.elapsedTime); 
-    }*/
-   
     
-    // generate bricks in the game, and store them into a list
+    // generate bricks in the game, and store them into an array
     private void GenerateBricks()
     {
         brickList = new List<GameObject>(); // instantiate a list that holds bricks 
@@ -125,7 +129,9 @@ public class GameManager : MonoBehaviour
         numOfBricks = brickList.Count; // assign the total number of bricks to this variable 
         Debug.Log("num of bricks at the beginning of the game: " + numOfBricks);
     }
-
+    
+    
+    // Helper function for generating star objects
     private void GenerateStar()
     {
         // create star objects in the game
@@ -135,7 +141,9 @@ public class GameManager : MonoBehaviour
         starRight.transform.position = new Vector3(58, 31, 0); // place the star on the right top corner 
         starLeft.transform.position = new Vector3(-58, 20, 0); // place the star on the left, above the leftPaddle
     }
-
+    
+    
+    // Helper function for controlling audio 
     private void AudioController()
     {
         // check if the audiosource is assigned in the Inspector
@@ -144,22 +152,19 @@ public class GameManager : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
         }
         
-        // Play background music 
-        if (audioSource != null && audioSource.clip != null)
-        {
-            // static variable "AudioMuted" in StartEnd.cs is being passed here for mute control
-            audioSource.mute = StartScreen.AudioMuted; 
-            audioSource.loop = true; // set loop to true so it plays forever 
-            audioSource.Play();
-        } 
+        AudioUtils.PlaySound(audioSource); // call Audio Utility class function 
     }
 
+    
+    // Helper function for generating the time 
     private void GenerateTime()
     {
         GameObject timeGO = GameObject.Find("TimeCounter"); // Find scoreCounter obj in the Hierarchy
         timeCounter = timeGO.GetComponent<TimeCounter>(); // get the scoreCounter script component of scoreGO 
     }
-
+    
+    
+    // Helper function for genetating the score 
     private void GenerateScore()
     {
         GameObject scoreGO = GameObject.Find("ScoreCounter"); // Find scoreCounter obj in the Hierarchy

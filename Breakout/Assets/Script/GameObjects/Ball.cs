@@ -7,18 +7,19 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public float maxVelocity = 10f; // max speed of the ball 
-    private bool trigger; // when ball hits a special object, turn this to true
+    private bool trigger; // bool flag for hitting star object
     private Rigidbody2D rb;
-    public static bool hitFlag;
-    public static bool enemyFlag;
+    public static bool hitFlag; // bool flag for passing to GameManager when ball hits brick
+    public static bool enemyFlag; // bool flag for passing to GameManager when ball hits enemy
     
     /* Audio */
     public AudioSource audioSource; 
     
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        trigger = false;
+        trigger = false; 
         
         // check if AudioSource is assigned in the Ispector
         if (audioSource == null)
@@ -30,10 +31,10 @@ public class Ball : MonoBehaviour
         enemyFlag = false;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        // if ball hits a special object, increase the size
+        // if ball hits the star, increase the size
         if (trigger)
         {
             transform.localScale = new Vector3(2.5f,2.5f,0);
@@ -42,13 +43,14 @@ public class Ball : MonoBehaviour
         {
             transform.localScale = new Vector3(1.2f,1.2f,0);
         }
-        //Debug.Log(rb.velocity.magnitude);
+        
         // make sure ball speed won't exceed max velocity 
         if (rb.velocity.magnitude > maxVelocity)
         {
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxVelocity);
         }
     }
+    
     
     private void OnCollisionEnter2D(Collision2D coll)
     {
@@ -82,9 +84,6 @@ public class Ball : MonoBehaviour
     // this function gets called everytime the ball hits an object
     public void BallBounceSound()
     {
-        if (audioSource != null && audioSource.clip != null)
-        {
-            audioSource.Play();
-        }
+       AudioUtils.PlaySound(audioSource); // call Audio Utility class
     }
 }

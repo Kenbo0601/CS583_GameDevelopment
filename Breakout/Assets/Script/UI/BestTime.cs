@@ -26,7 +26,7 @@ public class BestTime : MonoBehaviour
     }
 
     // property field
-    static public float TIME
+    public static float TIME
     {
         get { return _TIME; }
         private set
@@ -44,7 +44,7 @@ public class BestTime : MonoBehaviour
         }
     }
 
-    static public void TRY_SET_BEST_TIME(float timeToTry)
+    public static void TRY_SET_BEST_TIME(float timeToTry)
     {
         if(timeToTry >= TIME) return;
         TIME = timeToTry;
