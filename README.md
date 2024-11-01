@@ -36,7 +36,7 @@ This project is an individual assignment to recreate the classic arcade game **B
 ### Images 
 
 #### Title 
-![Title](https://github.com/Kenbo0601/CS583_GameDevelopment/title.png)
+![Title](https://github.com/Kenbo0601/CS583_GameDevelopment/blob/main/title.png)
 
 
 ### Installation
